@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import com.example.demo.component.DemoBean;
+import com.example.demo.component.EmployeeBean;
 import com.example.demo.controller.HelloRestController;
 
 @SpringBootApplication
@@ -24,8 +25,12 @@ public class NewHelloWorldApplication {
 		//System.out.println("Demo Bean= "+demoBean.toString());
 		//System.out.println(context.getBean(HelloRestController.class));
 		logger.debug("Demo Bean= "+demoBean.toString());
-		//logger.warn(context.getBean(HelloRestController.class));
-		//ApplicationContext context=SpringAppplication.run(NewHell)
+		
+		EmployeeBean employeeBean=context.getBean(EmployeeBean.class);
+		employeeBean.setEid(104);
+		employeeBean.setEname("Spring Framework Guru");
+		employeeBean.showEmployeeDetails();
 	}
+	
 
 }
